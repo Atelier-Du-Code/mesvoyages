@@ -6,6 +6,7 @@ use App\Entity\Environnement;
 use App\Entity\Visite;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -31,6 +32,8 @@ class VisiteType extends AbstractType
                 'multiple' => true,
                 'required' => false])
             
+            ->add('imageFile', FileType::class,['required' =>false, 'label'=>'image'])
+                
             ->add('submit', SubmitType::class, ['label' => 'Enregistrer']);
                 
     }
